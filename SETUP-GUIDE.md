@@ -1,4 +1,4 @@
-# 🎓 CampusIQ+ — Complete Setup Guide
+ # 🎓 CampusIQ+ — Complete Setup Guide
 
 > **AI-Powered Smart Campus Management Platform**  
 > Spring Boot 3.2 · Java 17 · React 18 · MySQL 8 · Ollama AI

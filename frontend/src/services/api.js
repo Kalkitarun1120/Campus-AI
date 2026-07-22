@@ -159,7 +159,7 @@ export const notifAPI = notificationAPI;
 // GET /users/students, /users/faculty, /users/{id}, /users/stats
 export const userAPI = {
   getStudents:   ()          => api.get('/users/students'),
-  getFaculty:    ()          => api.get('/users/faculty')
+  getFaculty:    ()          => api.get('/users/faculty'),
   getById:       (id)        => api.get(`/users/${id}`),
   getMyProfile:  ()          => api.get('/users/me'),
   getMyFull:     ()          => api.get('/users/me/full'),
