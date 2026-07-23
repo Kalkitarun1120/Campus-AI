@@ -198,4 +198,6 @@ export const cgpaUploadAPI = {
   getAllCgpa:      ()     => api.get('/cgpa/all'),
 };
 
+console.log("API URL:", process.env.REACT_APP_API_BASE_URL);
+
 export default api;
