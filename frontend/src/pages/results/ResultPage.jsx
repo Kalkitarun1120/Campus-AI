@@ -15,7 +15,7 @@ import {
 import api from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 import PageHeader from '../../components/shared/PageHeader';
-import { COLORS, getPerfColor, getPerfBg } from '../../theme/theme';
+import { COLORS, getPerfColor } from '../../theme/theme';
 import { toast } from 'react-toastify';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, CTooltip, Legend);

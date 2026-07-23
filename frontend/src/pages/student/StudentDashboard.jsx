@@ -53,7 +53,6 @@ export default function StudentDashboard() {
   const [fees,       setFees]       = useState([]);
   const [notifs,     setNotifs]     = useState([]);
   const [aiData,     setAiData]     = useState(null);
-  const [gpa,        setGpa]        = useState(null);
   const [loading,    setLoading]    = useState(true);
 
   useEffect(() => {
@@ -93,7 +92,6 @@ export default function StudentDashboard() {
     setNotifs(Array.isArray(data) ? data : []);
   })
   .catch(() => setNotifs([]));
-      if (gpaRes.status === 'fulfilled') setGpa(gpaRes.value.data.data);
       if (ai.status  === 'fulfilled') {
         const raw = ai.value.data.data;
         setAiData(raw ? {

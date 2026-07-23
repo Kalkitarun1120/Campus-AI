@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Box, Grid, Card, CardContent, Typography, Chip, CircularProgress,
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Alert
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow
 } from '@mui/material';
 import { TrendingUp, School } from '@mui/icons-material';
 import { gpaAPI, resultAPI } from '../../services/api';

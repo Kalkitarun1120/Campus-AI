@@ -31,18 +31,17 @@ export default function StudentDetails() {
   const [attendance, setAttendance] = useState([]);
   const [results,    setResults]    = useState([]);
   const [gpa,        setGpa]        = useState(null);
-  const [perf,       setPerf]       = useState(null);
   const [loading,    setLoading]    = useState(true);
-  const [error,      setError]      = useState('');
+  const [error] = useState('');
 
   useEffect(() => {
     if (!studentId) return;
     Promise.allSettled([
       userAPI.getById(studentId),
-      studentId == user?.id ? attendanceAPI.getMyAttendance() : attendanceAPI.getStudentAttendance(studentId),
-      studentId == user?.id ? resultAPI.getMyResults() : resultAPI.getStudentResults(studentId),
+      studentId === user?.id ? attendanceAPI.getMyAttendance() : attendanceAPI.getStudentAttendance(studentId),
+      studentId === user?.id ? resultAPI.getMyResults() : resultAPI.getStudentResults(studentId),
       gpaAPI.getStudentGpa(studentId),
-      studentId == user?.id
+      studentId === user?.id
         ? analyticsAPI.getMyPerformance()
         : analyticsAPI.getStudentPerformance(studentId),
     ]).then(([u, att, res, gpaRes, perfRes]) => {
@@ -50,10 +49,9 @@ export default function StudentDetails() {
       if (att.status === 'fulfilled')  setAttendance(att.value.data.data || []);
       if (res.status === 'fulfilled')  setResults(res.value.data.data || []);
       if (gpaRes.status === 'fulfilled') setGpa(gpaRes.value.data.data);
-      if (perfRes.status === 'fulfilled') setPerf(perfRes.value.data.data);
       setLoading(false);
     });
-  }, [studentId]);
+}, [studentId, user?.id]);
 
   if (loading) return <Box sx={{ display:'flex', justifyContent:'center', mt:8 }}><CircularProgress /></Box>;
   if (error) return <Alert severity="error">{error}</Alert>;
